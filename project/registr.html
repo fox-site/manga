@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Light Fox Manga - Вход и Регистрация</title>
+    <link rel="stylesheet" href="css/auth.css"> </head>
+</head>
+<body data-theme="light">
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="floating-shape"></div>
+        <div class="floating-shape"></div>
+        <div class="floating-shape"></div>
+    </div>
+
+    <!-- Back Button -->
+    <a href="index.html" class="back-btn" id="backBtn">
+        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+        </svg>
+        На главную
+    </a>
+
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" id="themeToggle">
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M21 12.79C20.8427 14.4922 20.2039 16.1144 19.1583 17.4668C18.1127 18.8192 16.7035 19.8458 15.0957 20.4265C13.4879 21.0073 11.7431 21.1181 10.0644 20.7461C8.38579 20.374 6.8398 19.5345 5.61677 18.3271C4.39374 17.1198 3.54362 15.5916 3.17133 13.9299C2.79905 12.2682 2.91262 10.5378 3.49644 8.94267C4.08026 7.34753 5.10962 5.94939 6.46482 4.90969C7.82002 3.86999 9.44343 3.23112 11.16 3.08C10.1598 4.98048 9.94059 7.18295 10.5446 9.23931C11.1486 11.2957 12.5154 13.0464 14.3735 14.1467C16.2317 15.247 18.4549 15.6021 20.55 15.13L21 12.79Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: none;">
+            <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12 1V3M12 21V23M4.22 4.22L5.64 5.64M18.36 18.36L19.78 19.78M1 12H3M21 12H23M4.22 19.78L5.64 18.36M18.36 5.64L19.78 4.22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
+
+    <!-- Main Container -->
+    <div class="auth-container">
+        <div class="auth-wrapper">
+            <!-- Left Panel -->
+            <div class="auth-panel left">
+                <div class="welcome-content">
+                    <div class="logo-section">
+                        <span class="logo-icon">🦊</span>
+                        <div class="logo-text">Light Fox Manga</div>
+                        <div class="logo-subtitle">Твой мир манги</div>
+                    </div>
+                    
+                    <div class="welcome-message" id="welcomeMessage">
+                        <h2 class="welcome-title" data-translate="auth.welcome">Добро пожаловать!</h2>
+                        <p class="welcome-text">Присоединяйтесь к сообществу любителей манги. Тысячи тайтлов, эксклюзивный контент и многое другое ждут вас!</p>
+                        <button class="switch-btn" id="switchToRegister" data-translate="auth.create.account">Создать аккаунт</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Panel -->
+            <div class="auth-panel right">
+                <div class="form-container">
+                    <!-- Success Animation -->
+                    <div class="success-animation" id="successAnimation">
+                        <div class="success-icon">✅</div>
+                        <h3>Добро пожаловать!</h3>
+                        <p>Вы успешно вошли в систему. Переносим вас...</p>
+                        <div class="loading show">
+                            <div class="loading-spinner"></div>
+                            Загрузка...
+                        </div>
+                    </div>
+
+                    <!-- Login Form -->
+                    <div class="auth-form active" id="loginForm">
+                        <div class="form-header">
+                            <h2 class="form-title" data-translate="auth.login">Вход в аккаунт</h2>
+                            <p class="form-subtitle">Введите ваши данные для входа</p>
+                        </div>
+
+                        <form id="loginFormElement">
+                            <div class="form-group">
+                                <label class="form-label" data-translate="auth.email">Электронная почта</label>
+                                <input type="email" class="form-input" id="loginEmail" data-translate="auth.email" placeholder="example@email.com" required>
+                                <div class="error-message" id="loginEmailError"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" data-translate="auth.password">Пароль</label>
+                                <input type="password" class="form-input" id="loginPassword" data-translate="auth.password" placeholder="Введите пароль" required>
+                                <div class="error-message" id="loginPasswordError"></div>
+                            </div>
+
+                            <div class="form-checkbox">
+                                <input type="checkbox" id="rememberMe">
+                                <label class="checkbox-label" for="rememberMe" data-translate="auth.remember">Запомнить меня</label>
+                            </div>
+
+                            <button type="submit" class="auth-btn primary" id="loginBtn" data-translate="auth.login.btn">
+                                Войти
+                            </button>
+
+                            <div class="loading" id="loginLoading">
+                                <div class="loading-spinner"></div>
+                                Вход в систему...
+                            </div>
+                        </form>
+
+                        <div class="divider">
+                            <span>или</span>
+                        </div>
+
+                        <button class="auth-btn google-btn" id="googleLoginBtn">
+                            <svg class="google-icon" viewBox="0 0 24 24">
+                                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                            </svg>
+                            Войти через Google
+                        </button>
+
+                        <div class="forgot-password">
+                            <a href="#" onclick="showForgotPassword()" data-translate="auth.forgot.password">Забыли пароль?</a>
+                        </div>
+                    </div>
+
+                    <!-- Register Form -->
+                    <div class="auth-form" id="registerForm">
+                        <div class="form-header">
+                            <h2 class="form-title" data-translate="auth.register">Регистрация</h2>
+                            <p class="form-subtitle">Создайте аккаунт для доступа ко всему контенту</p>
+                        </div>
+
+                        <form id="registerFormElement">
+                            <div class="form-group">
+                                <label class="form-label" data-translate="auth.username">Имя пользователя</label>
+                                <input type="text" class="form-input" id="registerUsername" data-translate="auth.username" placeholder="Как к вам обращаться?" required>
+                                <div class="error-message" id="registerUsernameError"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" data-translate="auth.email">Электронная почта</label>
+                                <input type="email" class="form-input" id="registerEmail" data-translate="auth.email" placeholder="example@email.com" required>
+                                <div class="error-message" id="registerEmailError"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" data-translate="auth.password">Пароль</label>
+                                <input type="password" class="form-input" id="registerPassword" data-translate="auth.password" placeholder="Минимум 6 символов" required>
+                                <div class="error-message" id="registerPasswordError"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" data-translate="auth.confirm.password">Подтвердите пароль</label>
+                                <input type="password" class="form-input" id="confirmPassword" data-translate="auth.confirm.password" placeholder="Повторите пароль" required>
+                                <div class="error-message" id="confirmPasswordError"></div>
+                            </div>
+
+                            <div class="form-checkbox">
+                                <input type="checkbox" id="acceptTerms" required>
+                                <label class="checkbox-label" for="acceptTerms">
+                                    Я согласен с <a href="#" style="color: var(--primary-color);">условиями использования</a>
+                                </label>
+                            </div>
+
+                            <!-- Device Info -->
+                            <div class="device-info" id="deviceInfo">
+                                <h4>📱 Информация об устройстве</h4>
+                                <p id="deviceType">Тип: Определяется...</p>
+                                <p id="deviceBrowser">Браузер: Определяется...</p>
+                                <p id="deviceLocation">Местоположение: Определяется...</p>
+                                <p style="font-size: 0.75rem; opacity: 0.8; margin-top: 8px;">
+                                    ⚠️ Максимум 3 устройства на аккаунт
+                                </p>
+                            </div>
+
+                            <button type="submit" class="auth-btn primary" id="registerBtn">
+                                <span data-translate="auth.register.btn">Создать аккаунт</span>
+                            </button>
+
+                            <div class="loading" id="registerLoading">
+                                <div class="loading-spinner"></div>
+                                Создание аккаунта...
+                            </div>
+                        </form>
+
+                        <div class="divider">
+                            <span>или</span>
+                        </div>
+
+                        <button class="auth-btn google-btn" id="googleRegisterBtn">
+                            <svg class="google-icon" viewBox="0 0 24 24">
+                                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                            </svg>
+                            Регистрация через Google
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load Auth System -->
+    <script src="js/config.js"></script>
+    <script src="js/supabase-integration.js"></script>
+    <script src="js/supabase-init.js"></script>
+    <script src="js/enhanced-auth.js"></script>
+    <script src="js/supabase-client.js"></script>
+    <script src="js/compatibility-layer.js"></script>
+    <script src="js/supabase-manga.js"></script>
+    <script src="js/supabase-auth.js"></script>
+    <script src="js/supabase-comments.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/notifications-system.js"></script>
+    <script src="js/profile-system.js"></script>
+    <script src="js/donor-ranking.js"></script>
+    <script src="js/server-optimization.js"></script>
+    <script src="js/language-system.js"></script>
+    <script src="js/payment-system.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Light Fox Manga - Подписки</title>
+    <link rel="stylesheet" href="css/subscriptions.css">
+</head>
+<body data-theme="light">
+    <!-- Header (Desktop) -->
+    <header class="header">
+        <a href="index.html" class="logo">Light Fox Manga</a>
+        
+        <nav class="desktop-nav">
+            <a href="index.html" class="nav-link" data-translate="nav.home">Главная</a>
+            <a href="catalog.html" class="nav-link" data-translate="nav.catalog">Каталог</a>
+            <a href="cabinet.html" class="nav-link" data-translate="nav.cabinet">Кабинет</a>
+            <a href="subscriptions.html" class="nav-link active" data-translate="nav.subscriptions">Подписки</a>
+        </nav>
+        
+        <div class="header-controls">
+            <select class="lang-switch" id="langSwitch">
+                <option value="ru">Рус</option>
+                <option value="ua">Укр</option>
+                <option value="en">Eng</option>
+            </select>
+            <button class="theme-toggle" id="themeToggle">
+                <svg class="moon-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79C20.8427 14.4922 20.2039 16.1144 19.1583 17.4668C18.1127 18.8192 16.7035 19.8458 15.0957 20.4265C13.4879 21.0073 11.7431 21.1181 10.0644 20.7461C8.38579 20.374 6.8398 19.5345 5.61677 18.3271C4.39374 17.1198 3.54362 15.5916 3.17133 13.9299C2.79905 12.2682 2.91262 10.5378 3.49644 8.94267C4.08026 7.34753 5.10962 5.94939 6.46482 4.90969C7.82002 3.86999 9.44343 3.23112 11.16 3.08C10.1598 4.98048 9.94059 7.18295 10.5446 9.23931C11.1486 11.2957 12.5154 13.0464 14.3735 14.1467C16.2317 15.247 18.4549 15.6021 20.55 15.13L21 12.79Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <svg class="sun-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                    <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 1V3M12 21V23M4.22 4.22L5.64 5.64M18.36 18.36L19.78 19.78M1 12H3M21 12H23M4.22 19.78L5.64 18.36M18.36 5.64L19.78 4.22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <button class="profile-btn" id="profileBtn">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Hero Section -->
+            <section class="hero-section">
+                <h1 class="hero-title">🦊 <span data-translate="subs.title">Премиум подписки</span></h1>
+                <p class="hero-subtitle" data-translate="subs.subtitle">
+                    Откройте безграничный мир манги и аниме! Получите доступ к эксклюзивному контенту, 
+                    ранним релизам и особым привилегиям для истинных отаку.
+                </p>
+            </section>
+
+            <!-- Period Toggle -->
+            <!-- Period toggle removed as requested -->
+
+            <!-- Subscription Plans -->
+            <div class="plans-grid" id="plansGrid">
+                <!-- Free Plan -->
+                <div class="plan-card free">
+                    <div class="plan-header">
+                        <span class="plan-icon">📖</span>
+                        <h3 class="plan-name" data-translate="subs.free">Любители Манги</h3>
+                        <span class="plan-tier">Free</span>
+                        <div class="plan-price">
+                            <span class="price-value">Бесплатно</span>
+                        </div>
+                        <div class="plan-period">навсегда</div>
+                    </div>
+                    <ul class="plan-features">
+                        <li class="feature-item">
+                            <span class="feature-icon feature-available">✓</span>
+                            3 главы в день
+                        </li>
+                        <li class="feature-item">
+                            <span class="feature-icon feature-available">✓</span>
+                            Базовое качество
+                        </li>
+                        <li class="feature-item">
+                            <span class="feature-icon feature-unavailable">✗</span>
+                            Без рекламы
+                        </li>
+                        <li class="feature-item">
+                            <span class="feature-icon feature-unavailable">✗</span>
+                            Ранний доступ
+                        </li>
+                    </ul>
+                    <button class="plan-button" onclick="selectPlan('free')">
+                        <span data-translate="subs.free.start">Начать бесплатно</span>
+                    </button>
+                </div>
+
+                <!-- Basic Plan -->
+                <div class="plan-card">
+                    <div class="plan-header">
+                        <span class="plan-icon">🎯</span>
+                        <h3 class="plan-name" data-translate="subs.basic">Любители Пика</h3>
+                        <span class="plan-tier">Basic</span>
+                        <div class="plan-price">
+                            <span class="price-value" data-price="290">290₽</span>
+                        </div>
+                        <div class="plan-period">/ месяц</div>
+                    </div>
+                    <ul class="plan-features">
+                        <li class="feature-item">
+                            <span class="feature-icon feature-available">✓</span>
+                            10 глав в день
+                        </li>
+                        <li class="feature-item">
+                            <span class="feature-icon feature-available">✓</span>
+                            HD качество
+                        </li>
+                        <li class="feature-item">
+                            <span class="feature-icon feature-available">✓</span>
+                            Без рекламы
+                        </li>
+                        <li class="feature-item">
+                            <span class="feature-icon feature-unavailable">✗</span>
+                            Ранний доступ
+                        </li>
+                    </ul>
+                    <button class="plan-button" onclick="selectPlan('basic')">
+                        <span data-translate="subs.select">Выбрать план</span>
+                    </button>
+                </div>
+
+                <!-- Premium Plan -->
+                <div class="plan-card premium popular">
+                    <div class="popular-badge">🔥 <span data-translate="subs.popular">Популярный</span></div>
+                    <div class="plan-header">
+                        <span class="plan-icon">👑</span>
+                        <h3 class="plan-name" data-translate="subs.premium">Орден Шейхов</h3>
+                        <span class="plan-tier">Premium</span>
+                        <div class="plan-price">
+                            <span class="price-value" data-price="690">690₽</span>
+                        </div>
+                        <div class="plan-period">/ месяц</div>
+                    </div>
+                    <ul class="plan-features">
+                        <li class="feature-item">
+                            <span class="feature-icon feature-available">✓</span>
+                            Безлимитные главы
+                        </li>
+                        <li class="feature-item">
+                            <span class="feature-icon feature-available">✓</span>
+                            4K качество
+                        </li>
+                        <li class="feature-item">
+                            <span class="feature-icon feature-available">✓</span>
+                            Ранний доступ
+                        </li>
+                        <li class="feature-item">
+                            <span class="feature-icon feature-available">✓</span>
+                            Офлайн чтение
+                        </li>
+                    </ul>
+                    <button class="plan-button" onclick="selectPlan('premium')">
+                        <span data-translate="subs.select">Выбрать план</span>
+                    </button>
+                </div>
+
+                <!-- VIP Plan -->
+                <div class="plan-card vip">
+                    <div class="plan-header">
+                        <span class="plan-icon">🌟</span>
+                        <h3 class="plan-name" data-translate="subs.vip">Лисямбы</h3>
+                        <span class="plan-tier">VIP Max</span>
+                        <div class="plan-price">
+                            <span class="price-value" data-price="1290">1290₽</span>
+                        </div>
+                        <div class="plan-period">/ месяц</div>
+                    </div>
+                    <ul class="plan-features">
+                        <li class="feature-item">
+                            <span class="feature-icon feature-available">✓</span>
+                            Все функции Premium
+                        </li>
+                        <li class="feature-item">
+                            <span class="feature-icon feature-available">✓</span>
+                            Эксклюзивный контент
+                        </li>
+                        <li class="feature-item">
+                            <span class="feature-icon feature-available">✓</span>
+                            VIP значок
+                        </li>
+                        <li class="feature-item">
+                            <span class="feature-icon feature-available">✓</span>
+                            Голосование
+                        </li>
+                    </ul>
+                    <button class="plan-button" onclick="selectPlan('vip')">
+                        <span data-translate="subs.select">Выбрать план</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+<!-- Mobile Bottom Navigation -->
+    <nav class="bottom-nav">
+        <a href="index.html" class="nav-item active">
+            <div class="nav-icon">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 12L5 10M5 10L12 3L19 10M5 10V20C5 20.5523 5.44772 21 6 21H9M19 10L21 12M19 10V20C19 20.5523 18.5523 21 18 21H15M9 21C9.55228 21 10 20.5523 10 20V16C10 15.4477 10.4477 15 11 15H13C13.5523 15 14 15.4477 14 16V20C14 20.5523 14.4477 21 15 21M9 21H15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <span>Главная</span>
+        </a>
+        <a href="catalog.html" class="nav-item">
+            <div class="nav-icon">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 19.5C4 18.1193 5.11929 17 6.5 17H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M6.5 2H20V22H6.5C5.11929 22 4 20.8807 4 19.5V4.5C4 3.11929 5.11929 2 6.5 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <span>Каталог</span>
+        </a>
+        <a href="#" class="nav-item" onclick="openRandomManga()">
+            <div class="nav-icon">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20.84 4.61C20.3292 4.099 19.7228 3.69364 19.0554 3.41708C18.3879 3.14052 17.6725 2.99817 16.95 2.99817C16.2275 2.99817 15.5121 3.14052 14.8446 3.41708C14.1772 3.69364 13.5708 4.099 13.06 4.61L12 5.67L10.94 4.61C9.9083 3.5783 8.50903 2.9987 7.05 2.9987C5.59096 2.9987 4.19169 3.5783 3.16 4.61C2.1283 5.6417 1.5487 7.04097 1.5487 8.5C1.5487 9.95903 2.1283 11.3583 3.16 12.39L4.22 13.45L12 21.23L19.78 13.45L20.84 12.39C21.351 11.8792 21.7563 11.2728 22.0329 10.6053C22.3095 9.93789 22.4518 9.22248 22.4518 8.5C22.4518 7.77752 22.3095 7.06211 22.0329 6.39467C21.7563 5.72723 21.351 5.1208 20.84 4.61Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <span>Случайное</span>
+        </a>
+        <a href="subscriptions.html" class="nav-item">
+            <div class="nav-icon">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L15.09 8.26L22 9L17 14L18.18 21L12 17.77L5.82 21L7 14L2 9L8.91 8.26L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+            </div>
+            <span>Подписка</span>
+        </a>
+        <div class="nav-item" id="mobileProfileBtn">
+            <div class="nav-icon">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <span>Профиль</span>
+        </div>
+    </nav>
+
+    <!-- Side Menu Overlay -->
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+    <!-- Side Menu -->
+    <div class="side-menu" id="sideMenu">
+        <!-- Auth Section (when not logged in) -->
+        <div class="auth-buttons" id="authSection">
+            <button class="auth-btn" onclick="login()">Вход/Регистрация</button>
+        </div>
+
+        <!-- User Section (when logged in) -->
+        <div class="user-info" id="userSection" style="display: none;">
+            <div class="user-avatar" id="userAvatar">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <div class="user-name" id="userName">Пользователь</div>
+            <div class="user-email" id="userEmail">user@example.com</div>
+        </div>
+
+        <!-- Mobile Theme Toggle -->
+        <div class="mobile-theme-toggle">
+            <span>Темная тема</span>
+            <button class="mobile-theme-btn" id="mobileThemeToggle">
+                <svg class="mobile-moon-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79C20.8427 14.4922 20.2039 16.1144 19.1583 17.4668C18.1127 18.8192 16.7035 19.8458 15.0957 20.4265C13.4879 21.0073 11.7431 21.1181 10.0644 20.7461C8.38579 20.374 6.8398 19.5345 5.61677 18.3271C4.39374 17.1198 3.54362 15.5916 3.17133 13.9299C2.79905 12.2682 2.91262 10.5378 3.49644 8.94267C4.08026 7.34753 5.10962 5.94939 6.46482 4.90969C7.82002 3.86999 9.44343 3.23112 11.16 3.08C10.1598 4.98048 9.94059 7.18295 10.5446 9.23931C11.1486 11.2957 12.5154 13.0464 14.3735 14.1467C16.2317 15.247 18.4549 15.6021 20.55 15.13L21 12.79Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <svg class="mobile-sun-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                    <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 1V3M12 21V23M4.22 4.22L5.64 5.64M18.36 18.36L19.78 19.78M1 12H3M21 12H23M4.22 19.78L5.64 18.36M18.36 5.64L19.78 4.22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Language Select -->
+        <div class="mobile-lang-select">
+            <select id="mobileLangSwitch">
+                <option value="ru">Русский</option>
+                <option value="ua">Українська</option>
+                <option value="en">English</option>
+            </select>
+        </div>
+
+        <!-- Menu Items -->
+        <a href="index.html" class="menu-item">Главная</a>
+        <a href="cabinet.html" class="menu-item">Личный кабинет</a>
+        <a href="#" class="menu-item" onclick="openRandomManga(); closeMenu();">Случайная Манга</a>
+        <a href="catalog.html" class="menu-item">Каталог</a>
+        <a href="subscriptions.html" class="menu-item">Подписки</a>
+        <a href="news.html" class="menu-item">Новости</a>
+
+        
+        <!-- Logout Button (only when logged in) -->
+        <a href="#" class="menu-item logout-btn" id="logoutBtn" onclick="logout()" style="display: none;">Выйти</a>
+    </div>
+
+    <!-- Notification -->
+    <div class="notification" id="notification"></div>
+
+    <script src="js/config.js"></script>
+    <script src="js/supabase-integration.js"></script>
+    <script src="js/supabase-init.js"></script>
+    <script src="js/enhanced-auth.js"></script>
+    <script src="js/supabase-client.js"></script>
+    <script src="js/compatibility-layer.js"></script>
+    <script src="js/supabase-manga.js"></script>
+    <script src="js/supabase-auth.js"></script>
+    <script src="js/supabase-comments.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/notifications-system.js"></script>
+    <script src="js/profile-system.js"></script>
+    <script src="js/donor-ranking.js"></script>
+    <script src="js/access-control.js"></script>
+    <script src="js/server-optimization.js"></script>
+    <script src="js/language-system.js"></script>
+    <script src="js/payment-system.js"></script>
+    <script src="js/subscriptions.js"></script>
+</body>
+</html>

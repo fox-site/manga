@@ -1,0 +1,348 @@
+/* Menu System Styles - Extracted from your working code */
+
+/* Theme Variables */
+:root {
+    --bg-color: #f5f5f5;
+    --card-bg: #ffffff;
+    --text-color: #333;
+    --border-color: #e0e0e0;
+    --primary-color: #ff8a50;
+    --primary-hover: #ff7043;
+    --secondary-color: #666;
+    --shadow: 0 2px 8px rgba(0,0,0,0.1);
+    --header-height: 60px;
+    --mobile-bottom-nav: 60px;
+    
+    /* Для совместимости со старыми стилями */
+    --bg-primary: var(--card-bg);
+    --bg-secondary: var(--card-bg);
+    --bg-tertiary: #e9ecef;
+    --text-primary: var(--text-color);
+    --text-secondary: var(--secondary-color);
+    --text-muted: #868e96;
+    --accent-primary: var(--primary-color);
+    --accent-hover: var(--primary-hover);
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+}
+
+[data-theme="dark"] {
+    --bg-color: #1a1a1a;
+    --card-bg: #2d2d2d;
+    --text-color: #ffffff;
+    --border-color: #444;
+    --secondary-color: #aaa;
+    --shadow: 0 2px 8px rgba(0,0,0,0.3);
+    
+    /* Для совместимости */
+    --bg-primary: #121212;
+    --bg-secondary: #1e1e1e;
+    --bg-tertiary: #2a2a2a;
+    --text-primary: #ffffff;
+    --text-secondary: #b3b3b3;
+    --text-muted: #666666;
+}
+
+/* Base Body Styles */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+    padding-bottom: var(--mobile-bottom-nav);
+}
+
+/* Header Styles */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--header-height);
+    background: var(--card-bg);
+    border-bottom: 1px solid var(--border-color);
+    display: none;
+    align-items: center;
+    padding: 0 32px;
+    z-index: 1000;
+    box-shadow: var(--shadow);
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-right: auto;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.logo:hover {
+    color: var(--primary-hover);
+}
+
+.desktop-nav {
+    display: flex;
+    gap: 24px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.desktop-nav a {
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    /* Цвета навигации для светлой и темной темы */
+    color: var(--text-color);
+}
+
+.desktop-nav a.active {
+    background: var(--primary-color);
+    color: white;
+}
+
+.desktop-nav a:hover {
+    background: var(--primary-hover);
+    color: white;
+}
+
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.lang-switch, .theme-toggle {
+    padding: 8px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background: var(--card-bg);
+    color: var(--text-color);
+    cursor: pointer;
+    font-size: 12px;
+    transition: all 0.2s ease;
+}
+
+.theme-toggle {
+    font-size: 16px;
+    width: 40px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-toggle svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+}
+
+.profile-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    border: none;
+}
+
+.profile-btn:hover {
+    background: var(--primary-hover);
+    transform: scale(1.05);
+}
+
+.profile-btn svg {
+    width: 16px;
+    height: 16px;
+    stroke: currentColor;
+}
+
+/* Mobile Bottom Navigation */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: var(--mobile-bottom-nav);
+    background: var(--card-bg);
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    z-index: 1000;
+    backdrop-filter: blur(8px);
+}
+
+.nav-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-size: 11px;
+    gap: 4px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    user-select: none;
+}
+
+.nav-item.active {
+    color: var(--primary-color);
+}
+
+.nav-icon {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-icon svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+}
+
+/* Side Menu Styles */
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 300px;
+    height: 100vh;
+    background: var(--card-bg);
+    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.3);
+    z-index: 2000;
+    transition: right 0.3s ease;
+    padding: var(--header-height) 0 0 0;
+    overflow-y: auto;
+}
+
+.side-menu.open {
+    right: 0;
+}
+
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1500;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.menu-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.auth-buttons {
+    padding: 20px;
+}
+
+.auth-btn {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 12px;
+    border: 1px solid var(--accent-primary);
+    border-radius: var(--radius-sm);
+    background: var(--accent-primary);
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.auth-btn:hover {
+    background: var(--accent-hover);
+}
+
+.menu-item {
+    display: block;
+    padding: 16px 20px;
+    color: var(--text-primary);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border-color);
+    transition: background 0.2s;
+    cursor: pointer;
+}
+
+.menu-item:hover,
+.menu-item.active {
+    background: var(--bg-color);
+    color: var(--accent-primary);
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+    body {
+        padding-bottom: 0;
+    }
+    
+    .header {
+        display: flex;
+    }
+    
+    .bottom-nav {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .desktop-nav {
+        display: none;
+    }
+    
+    .bottom-nav {
+        display: flex;
+    }
+}
+
+/* Additional Navigation Colors for Theme Compatibility */
+[data-theme="dark"] .desktop-nav a,
+[data-theme="dark"] .bottom-nav .nav-item {
+    color: #ffffff;
+}
+
+.desktop-nav a,
+.bottom-nav .nav-item {
+    color: #000;
+}
+
+/* Theme-specific overrides for dark mode */
+[data-theme="dark"] .desktop-nav a {
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] .bottom-nav .nav-item {
+    color: var(--text-secondary);
+}
+
+/* Main content adjustment for header */
+.main-content {
+    margin-top: 0;
+}
+
+@media (min-width: 768px) {
+    .main-content {
+        margin-top: var(--header-height);
+    }
+}

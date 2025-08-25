@@ -1,0 +1,31 @@
+{
+  "name": "light-fox-manga",
+  "version": "1.0.0",
+  "description": "Light Fox Manga - сайт для озвучки манги",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0 --port 3000",
+    "start": "npm run dev",
+    "build": "vite build",
+    "preview": "python3 -m http.server 4173",
+    "supabase": "npx supabase start"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.56.0",
+    "stripe": "^14.21.0",
+    "vite": "^5.4.2"
+  },
+  "devDependencies": {
+    "supabase": "^1.142.2",
+    "@types/node": "^20.11.0"
+  },
+  "keywords": [
+    "manga",
+    "anime",
+    "streaming",
+    "russian"
+  ],
+  "author": "Light Fox Manga Team",
+  "license": "MIT",
+  "type": "module"
+}
